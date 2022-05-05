@@ -1,0 +1,8 @@
+/home/roraima/IdeaProjects/PP/1_1_3_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/service/UserService.java
+/home/roraima/IdeaProjects/PP/1_1_3_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java
+/home/roraima/IdeaProjects/PP/1_1_3_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/model/User.java
+/home/roraima/IdeaProjects/PP/1_1_3_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/util/Util.java
+/home/roraima/IdeaProjects/PP/1_1_3_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/dao/UserDao.java
+/home/roraima/IdeaProjects/PP/1_1_3_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/dao/UserDaoHibernateImpl.java
+/home/roraima/IdeaProjects/PP/1_1_3_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/service/UserServiceImpl.java
+/home/roraima/IdeaProjects/PP/1_1_3_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java
