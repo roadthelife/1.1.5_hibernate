@@ -1,12 +1,14 @@
 package jm.task.core.jdbc;
 
 
+import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserServiceImpl;
 import jm.task.core.jdbc.util.Util;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 public class Main {
 
@@ -20,9 +22,11 @@ public class Main {
         userService.saveUser("user3c", "userC", (byte) 20);
         userService.saveUser("user4dd", "userD", (byte) 25);
 
-        for (int i = 0; i < 1; i++) {
-            System.out.println(userService.getAllUsers());
+        List<User> users = userService.getAllUsers();
+        for (User us : users) {
+            System.out.println(us);
         }
+        
         userService.cleanUsersTable();
         userService.dropUsersTable();
         Util.closeConnect();
