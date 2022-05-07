@@ -7,6 +7,7 @@ import jm.task.core.jdbc.util.Util;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
@@ -20,15 +21,21 @@ public class Main {
         userService.saveUser("user1a", "userA", (byte) 10);
         userService.saveUser("user2b", "userB", (byte) 15);
         userService.saveUser("user3c", "userC", (byte) 20);
-        userService.saveUser("user4dd", "userD", (byte) 25);
+        userService.saveUser("user4d", "userD", (byte) 25);
 
         List<User> users = userService.getAllUsers();
         for (User us : users) {
             System.out.println(us);
         }
-        
+
         userService.cleanUsersTable();
         userService.dropUsersTable();
-        Util.closeConnect();
+
+        try {
+            Util.activeConnection().close();
+            System.out.println("Connection close");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
