@@ -21,15 +21,6 @@ public class Util implements AutoCloseable {
     private static Connection connection;
     private static SessionFactory sessionFactory;
 
-    //    public Util() {
-//        try {
-//            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-//        } catch (SQLException e) {
-//            System.out.println("Error connection");
-//            e.printStackTrace();
-//        }
-//    }
-
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {

@@ -37,6 +37,8 @@ public class UserDaoHibernateImpl implements UserDao {
             Transaction transaction = session.beginTransaction();
             session.createSQLQuery("drop table IF exists USER").executeUpdate();
             transaction.commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
         }
     }
 
@@ -46,7 +48,8 @@ public class UserDaoHibernateImpl implements UserDao {
             Transaction transaction = session.beginTransaction();
             session.save(new User(name, lastName, age));
             transaction.commit();
-            System.out.println("User with name – " + name + " added to database");
+        } catch (HibernateException e) {
+            e.printStackTrace();
         }
     }
 
@@ -56,6 +59,8 @@ public class UserDaoHibernateImpl implements UserDao {
             Transaction transaction = session.beginTransaction();
             session.delete(session.get(User.class, id));
             transaction.commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
         }
     }
 
@@ -68,7 +73,9 @@ public class UserDaoHibernateImpl implements UserDao {
             List<User> users = session.createQuery(cq).getResultList();
             transaction.commit();
             return users;
-        }
+        }catch (HibernateException e) {
+            e.printStackTrace();
+        } return getAllUsers();
     }
 
     @Override
@@ -77,6 +84,8 @@ public class UserDaoHibernateImpl implements UserDao {
             Transaction transaction = session.beginTransaction();
             session.createSQLQuery("truncate table USER").executeUpdate();
             transaction.commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
         }
     }
 }
