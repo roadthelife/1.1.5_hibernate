@@ -12,7 +12,6 @@ import java.sql.Connection;
 import java.util.Properties;
 
 public class Util implements AutoCloseable {
-
     private static final String USERNAME = "root";
     private static final String PASSWORD = "short";
     private static final String URL = "jdbc:mysql://localhost:3306/db_hibernate";
@@ -21,9 +20,13 @@ public class Util implements AutoCloseable {
     private static Connection connection;
     private static SessionFactory sessionFactory;
 
+    private Util() {
+    }
+
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
+                //sessionFactory = (SessionFactory) new Util();
                 Configuration configuration = new Configuration();
                 Properties properties = new Properties();
                 properties.put(Environment.DRIVER, DRIVER);
@@ -61,9 +64,9 @@ public class Util implements AutoCloseable {
 //        return connection;
 //    }
 
-    public static Connection activeConnection() { // method getConnect
-        return connection;
-    }
+//    public static Connection activeConnection() { // method getConnect
+//        return (Connection) getSessionFactory().openSession();
+//    }
 
     @Override
     public void close() throws Exception {
