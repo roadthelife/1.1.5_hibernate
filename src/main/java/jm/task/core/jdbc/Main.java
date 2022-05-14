@@ -26,6 +26,7 @@ public class Main {
         userService.cleanUsersTable();
         userService.dropUsersTable();
 
+
 //        try {
 //            Util.getSessionFactory().close();
 //            System.out.println("Connection close");

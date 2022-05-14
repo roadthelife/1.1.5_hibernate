@@ -20,6 +20,15 @@ public class Util implements AutoCloseable {
     private static Connection connection;
     private static SessionFactory sessionFactory;
 
+    private static Util util;
+
+    public static synchronized Util getUtil() {
+        if (util == null) {
+            util = new Util();
+        }
+        return util;
+    }
+
     private Util() {
     }
 
